@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conditional Statements</title>
+</head>
+<body>
+
+  <h2>Open your browser console to run the JavaScript or click the buttons below</h2>
+
+  <button onclick="checkMultipleOf3()">1. Is Number a Multiple of 3?</button>
+  <br><br>
+  <button onclick="checkSubstring()">2. Is Word in Sentence?</button>
+  <br><br>
+  <button onclick="calculateInterest()">3. Calculate Complex Interest</button>
+
+  <script>
+    // 1. Check if number is a multiple of 3
+    function checkMultipleOf3() {
+      let num = prompt("Enter a number to check if it's a multiple of 3:");
+      num = parseInt(num);
+      if (isNaN(num)) {
+        alert("❌ Please enter a valid number.");
+      } else if (num % 3 === 0) {
+        alert(`✅ ${num} is a multiple of 3.`);
+      } else {
+        alert(`❌ ${num} is not a multiple of 3.`);
+      }
+    }
+
+    // 2. Check if a word exists in a sentence
+    function checkSubstring() {
+      const sentence = prompt("Enter a sentence (e.g., I am learning JS):");
+      const word = prompt("Enter the word to search for (e.g., js):");
+
+      if (sentence && word) {
+        const exists = sentence.toLowerCase().includes(word.toLowerCase());
+        if (exists) {
+          alert(`✅ The word "${word}" exists in the sentence.`);
+        } else {
+          alert(`❌ The word "${word}" does NOT exist in the sentence.`);
+        }
+      } else {
+        alert("❌ Please enter both sentence and word.");
+      }
+    }
+
+    // 3. Calculate complex interest: ((P / R) * T) / 100
+    function calculateInterest() {
+      const p = parseFloat(prompt("Enter the Principal amount:"));
+      const r = parseFloat(prompt("Enter the Rate of interest:"));
+      const t = parseFloat(prompt("Enter the Time in years:"));
+
+      if (isNaN(p) || isNaN(r) || isNaN(t) || r === 0) {
+        alert("❌ Invalid input. Make sure rate is not zero and all values are numbers.");
+        return;
+      }
+
+      const interest = ((p / r) * t) / 100;
+      alert(`✅ Complex Interest is: ${interest.toFixed(2)}`);
+    }
+  </script>
+
+</body>
+</html>
